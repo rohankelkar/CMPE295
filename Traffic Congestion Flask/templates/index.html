@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head> 
+		<meta charset="utf-8">
+	<title>Traffic Congestion</title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARHWfA9WpRMMFuCCV-3N-gSUfKycqDulg"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	<!-- <link href="/templates/style.css" type="text/css" rel="stylesheet"> -->
+</head>
+<body>
+	<div id="Traffic" style="
+    width: 50%;
+    margin-left: 30%;
+    margin-top: 5%;
+    border: 2px solid;
+    padding: 37px;
+">
+
+
+
+
+
+<div id="response">
+    <pre></pre>
+</div>
+
+<form id="my-form" onsubmit="processForm()"></form>
+<div class="form-group">
+	<label for="formGroupExampleInput">Start Address</label>
+	<input type="number"  class="form-control" id="txtStartingPoint"  placeholder="Example input" name="startlat">
+</div>
+<div class="form-group">
+	<label for="formGroupExampleInput">End Address</label>
+	<input type="number"  class="form-control" id="txtDestinationPoint" placeholder="Example input" name="startlong">
+</div>
+<div class="form-group">
+	<label for="formGroupExampleInput">End Point Lattitude</label>
+	<input type="number" step=any class="form-control" id="formGroupExampleInput" placeholder="Example input" name="endlat">
+</div>
+<div class="form-group">
+	<label for="formGroupExampleInput2">End Point Longitude</label>
+	<input type="number" step=any class="form-control" id="formGroupExampleInput2" placeholder="Another input" name="endlong">
+</div> 
+
+ <button class="btn btn-success" type="Submit" name="Xgboost">XGBOOST</button>
+ <button type="Submit" class="btn btn-success" name="Xgboost" value="Svr">SVR</button>
+ <button type="Submit" class="btn btn-success" name="Xgboost" value="Xgboost">XGBOOST</button>
+ <button type="Submit" class="btn btn-success" name="Xgboost" value="Xgboost">XGBOOST</button>
+
+</form>	
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    (function($){
+
+        function processForm( e ){
+					console.log("fr")
+            $.ajax({
+                url: '/',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                data: $(this).serialize(),
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+            });
+
+            e.preventDefault();
+        }
+
+        $('#my-form').submit( processForm );
+    })(jQuery);
+</script>
+</body>
+</html>
+
+
+
+
+
+	<!-- <form action="/" method="POST"> -->
+	
+
+	
+
+	<!-- <div id="result" style="
+    width: 50%;
+    margin-left: 30%;
+    margin-top: 2%;
+">
+<pre></pre> -->
+		<!-- <h3 style="
+    margin-left: 160px;
+">Result: {{a}} Seconds</h3>
+	</div> -->
+		
+
+<!-- </body> -->
+
+<!-- <script> -->
+
+
+</html>
+
